@@ -2,40 +2,29 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch",
+            "name": "PowerShell",
             "type": "coreclr",
             "request": "launch",
-            "justMyCode": false,
-            "stopAtEntry": true,
+            "justMyCode": true,
+            "stopAtEntry": false,
+            "internalConsoleOptions": "neverOpen",
+            "enableStepFiltering": true,
+            "allowFastEvaluate": true,
             "program": "${workspaceRoot}/debug/pwsh",
             "preLaunchTask": "Build",
-            "externalConsole": true,
-            "cwd": "${workspaceRoot}"
+            "console": "integratedTerminal",
+            "cwd": "${workspaceRoot}",
+            "logging": {
+              // Suppresses the "Just my Code" symbol skip warnings
+              "moduleLoad": false
+            }
         },
         {
-            "name": ".NET Core Attach",
+            "name": "Attach to Process",
             "type": "coreclr",
             "request": "attach",
-            "justMyCode": false,
+            "justMyCode": true,
             "processId": "${command:pickProcess}"
-        },
-        {
-            "type": "PowerShell",
-            "request": "launch",
-            "name": "PowerShell Launch Current File",
-            "script": "${file}",
-            "args": [],
-            "cwd": "${file}"
-        },
-        {
-            "type": "PowerShell",
-            "request": "launch",
-            "name": "PowerShell Launch Current File w/Args Prompt",
-            "script": "${file}",
-            "args": [
-                "${command:SpecifyScriptArgs}"
-            ],
-            "cwd": "${file}"
         }
     ]
 }
