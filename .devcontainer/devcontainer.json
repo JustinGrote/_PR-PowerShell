@@ -56,7 +56,7 @@
           },
           "PowerShell [Build]": {
             // TODO: Make this more relative?
-            "path": "/workspaces/PowerShell/src/powershell-unix/bin/Debug/net7.0/linux-x64/publish/pwsh",
+            "path": "/workspaces/PowerShell/src/powershell-unix/bin/Debug/net9.0/linux-x64/publish/pwsh",
             "args": ["-nologo"],
             "icon": "terminal-powershell",
             "overrideName": true,
@@ -99,7 +99,11 @@
         "omnisharp.enableRoslynAnalyzers": true,
         "omnisharp.organizeImportsOnFormat": true,
         "omnisharp.useModernNet": true,
-        "powershell.powerShellDefaultVersion": "PowerShell",
+        "powershell.powerShellAdditionalExePaths": {
+          "pwsh-devcontainer": "/usr/local/lib/pwsh/pwsh",
+          "pwsh-build": "/workspaces/PowerShell/src/powershell-unix/bin/Debug/net9.0/linux-x64/publish" //Must be updated when framework version changes
+        },
+        "powershell.powerShellDefaultVersion": "pwsh-devcontainer",
         "powershell.pester.debugOutputVerbosity": "Detailed",
         "powershell.codeFormatting.alignPropertyValuePairs": true,
         "powershell.codeFormatting.autoCorrectAliases": true,
