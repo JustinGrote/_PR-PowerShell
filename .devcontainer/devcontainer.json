@@ -7,7 +7,10 @@
   // This image should match version with the Azure Pipelines build image version to ensure consistency
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-20.04",
   "features": {
-    "ghcr.io/devcontainers-contrib/features/powershell:1": "latest"
+    "ghcr.io/devcontainers-contrib/features/powershell:1": "latest",
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "9.0.100-preview.1.24101.2"
+    }
     // Uncomment this if you want to contribute to documentation. See: https://github.com/PowerShell/PowerShell/blob/master/.github/CONTRIBUTING.md#contributing-to-documentation-related-to-maintaining-or-contributing-to-the-powershell-project
   },
   // TODO: Fix issues with ResGen, etc. so that root is not required
