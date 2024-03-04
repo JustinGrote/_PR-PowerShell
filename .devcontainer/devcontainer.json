@@ -4,11 +4,20 @@
   "hostRequirements": {
     "cpus": 4
   },
-  // This image is pre-cached in codespaces
-  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+  // This image should match version with the Azure Pipelines build image version to ensure consistency
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-20.04",
   "features": {
     "ghcr.io/devcontainers-contrib/features/powershell:1": "latest"
     // Uncomment this if you want to contribute to documentation. See: https://github.com/PowerShell/PowerShell/blob/master/.github/CONTRIBUTING.md#contributing-to-documentation-related-to-maintaining-or-contributing-to-the-powershell-project
+  },
+  // TODO: Fix issues with ResGen, etc. so that root is not required
+  "remoteUser": "root",
+  "remoteEnv": {
+    // Add dotnet, dotnet global tools, and local binaries to the path
+    "PATH": "/home/vscode/bin:/home/vscode/.dotnet:/home/vscode/.dotnet/tools:${containerEnv:PATH}",
+    "DOTNET_NOLOGO": "true",
+    // PowerShell bootstrap will place dotnet here, we need this env so the build script will find it to prevent an error
+    "DOTNET_ROOT": "/home/vscode/.dotnet"
   },
 
   // Devcontainer setup commands run in this order
@@ -103,14 +112,5 @@
         "workbench.iconTheme": "vscode-icons"
       }
     }
-  },
-  // TODO: Fix issues with ResGen, etc. so that root is not required
-  "remoteUser": "root",
-  "remoteEnv": {
-    // Add dotnet, dotnet global tools, and local binaries to the path
-    "PATH": "/home/vscode/bin:/home/vscode/.dotnet:/home/vscode/.dotnet/tools:${containerEnv:PATH}",
-    "DOTNET_NOLOGO": "true",
-    // PowerShell bootstrap will place dotnet here, we need this env so the build script will find it to prevent an error
-    "DOTNET_ROOT": "/home/vscode/.dotnet"
   }
 }
