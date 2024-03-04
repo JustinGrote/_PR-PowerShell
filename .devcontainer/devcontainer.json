@@ -25,7 +25,7 @@
 
   // Devcontainer setup commands run in this order
   "onCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/onCreate.ps1"],
-  // "updateContentCommand": ["pwsh","-f",".devcontainer/scripts/updateContent.ps1"],
+  "updateContentCommand": ["pwsh","-f",".devcontainer/scripts/updateContent.ps1"],
   "postCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/postCreate.ps1"],
   "postStartCommand": ["pwsh", "-f", ".devcontainer/scripts/postStart.ps1"],
   // BUG: This doesn't actually run but instead just puts the code in a console and requires enter. We dont need to do anything with this right now so ignore it.
@@ -36,18 +36,21 @@
     // Configure properties specific to VS Code.
     "vscode": {
       "extensions": [
-        "ms-vscode.PowerShell",
+        "ms-vscode.powershell@prerelease",
         "josefpihrt-vscode.roslynator", //This also installs the C# extension. We cant specify them both because it leads to a race condition currently due to bug in codespaces loading
-        "GitHub.vscode-pull-request-github",
-        "editorconfig.editorconfig",
+        "github.vscode-pull-request-github",
         "ms-azure-devops.azure-pipelines",
         "ms-vscode.cpptools",
-        "twxs.cmake",
-        "DavidAnson.vscode-markdownlint",
-        "vitaliymaz.vscode-svg-previewer"
+        "twxs.cmake"
       ],
       "settings": {
-        "extensions.ignoreRecommendations": true, // Suppresses a message about PowerShell stable because we use preview
+        "[csharp]": {
+          "editor.defaultFormatter": "ms-dotnettools.csharp",
+          "editor.wordBasedSuggestions": "off"
+        },
+        "[powershell]": {
+          "editor.defaultFormatter": "ms-vscode.powershell"
+        },
         "terminal.integrated.profiles.linux": {
           "pwsh": {
             "path": "pwsh",
@@ -77,13 +80,10 @@
           "color": "terminal.ansiGreen"
         },
         "workbench.startupEditor": "readme",
-        "[csharp]": {
-          "editor.defaultFormatter": "ms-dotnettools.csharp",
-          "editor.formatOnSave": true,
-          "editor.formatOnSaveMode": "modificationsIfAvailable",
-          "editor.formatOnType": true,
-          "editor.wordBasedSuggestions": false
-        },
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "modificationsIfAvailable",
+        "editor.formatOnType": true,
+        "editor.formatOnPaste": true,
         "editor.inlayHints.enabled": "offUnlessPressed",
         "powershell.powerShellAdditionalExePaths": {
           "pwsh-devcontainer": "/usr/local/lib/pwsh/pwsh",
