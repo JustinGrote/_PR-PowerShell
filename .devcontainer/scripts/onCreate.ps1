@@ -1,8 +1,11 @@
+#Reference: https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts
+$ErrorActionPreference = 'Stop'
+$ProgressPreference = 'Ignore'
+
 #Link Feature-Installed PowerShell to /usr/bin/pwsh, some vscode tasks hardcode this path
 New-Item -ItemType SymbolicLink -Path /usr/bin/pwsh -Value /usr/local/lib/pwsh/pwsh
 
-#Reference: https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts
-$ErrorActionPreference = 'Stop'
+
 Import-Module ./build.psm1
 
 #For local devcontainers, sometimes permissions can end up mixed. Since Git 2.25, this can prevent git from working
