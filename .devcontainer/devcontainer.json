@@ -3,13 +3,13 @@
   "name": "PowerShell Development",
   "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-20.04",
   "features": {
-    "powershell": "latest"
+    "ghcr.io/devcontainers-contrib/features/powershell:1": "latest"
     // Uncomment this if you want to contribute to documentation. See: https://github.com/PowerShell/PowerShell/blob/master/.github/CONTRIBUTING.md#contributing-to-documentation-related-to-maintaining-or-contributing-to-the-powershell-project
   },
 
   // Devcontainer setup commands run in this order
   "onCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/onCreate.ps1"],
-  "updateContentCommand": ["pwsh", "-f", ".devcontainer/scripts/updateContent.ps1"],
+  "updateContentCommand": ["pwsh","-f",".devcontainer/scripts/updateContent.ps1"],
   "postCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/postCreate.ps1"],
   "postStartCommand": ["pwsh", "-f", ".devcontainer/scripts/postStart.ps1"],
   // BUG: This doesn't actually run but instead just puts the code in a console and requires enter. We dont need to do anything with this right now so ignore it.
@@ -20,7 +20,7 @@
     // Configure properties specific to VS Code.
     "vscode": {
       "extensions": [
-        "ms-vscode.PowerShell-Preview",
+        "ms-vscode.PowerShell",
         "josefpihrt-vscode.roslynator", //This also installs the C# extension. We cant specify them both because it leads to a race condition currently due to bug in codespaces loading
         "GitHub.vscode-pull-request-github",
         "editorconfig.editorconfig",
@@ -35,17 +35,13 @@
         "terminal.integrated.profiles.linux": {
           "pwsh": {
             "path": "pwsh",
-            "args": [
-              "-nologo"
-            ],
+            "args": ["-nologo"],
             "icon": "terminal-powershell"
           },
           "PowerShell [Build]": {
             // TODO: Make this more relative?
             "path": "/workspaces/PowerShell/src/powershell-unix/bin/Debug/net7.0/linux-x64/publish/pwsh",
-            "args": [
-            "-nologo"
-            ],
+            "args": ["-nologo"],
             "icon": "terminal-powershell",
             "overrideName": true,
             "color": "terminal.ansiYellow"
@@ -74,7 +70,8 @@
       }
     }
   },
-  "remoteUser": "vscode",
+  // TODO: Fix issues with ResGen, etc. so that root is not required
+  "remoteUser": "root",
   "remoteEnv": {
     // Add dotnet, dotnet global tools, and local binaries to the path
     "PATH": "/home/vscode/bin:/home/vscode/.dotnet:/home/vscode/.dotnet/tools:${containerEnv:PATH}",
