@@ -1,7 +1,11 @@
 // For format details, see https://aka.ms/devcontainer.json
 {
   "name": "PowerShell Development",
-  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-20.04",
+  "hostRequirements": {
+    "cpus": 4
+  },
+  // This image is pre-cached in codespaces
+  "image": "mcr.microsoft.com/vscode/devcontainers/universal:linux",
   "features": {
     "ghcr.io/devcontainers-contrib/features/powershell:1": "latest"
     // Uncomment this if you want to contribute to documentation. See: https://github.com/PowerShell/PowerShell/blob/master/.github/CONTRIBUTING.md#contributing-to-documentation-related-to-maintaining-or-contributing-to-the-powershell-project
@@ -9,7 +13,7 @@
 
   // Devcontainer setup commands run in this order
   "onCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/onCreate.ps1"],
-  "updateContentCommand": ["pwsh","-f",".devcontainer/scripts/updateContent.ps1"],
+  // "updateContentCommand": ["pwsh","-f",".devcontainer/scripts/updateContent.ps1"],
   "postCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/postCreate.ps1"],
   "postStartCommand": ["pwsh", "-f", ".devcontainer/scripts/postStart.ps1"],
   // BUG: This doesn't actually run but instead just puts the code in a console and requires enter. We dont need to do anything with this right now so ignore it.
@@ -61,12 +65,42 @@
           "color": "terminal.ansiGreen"
         },
         "workbench.startupEditor": "readme",
-        "omnisharp.analyzeOpenDocumentsOnly": true,
-        "omnisharp.enableAsyncCompletion": true,
+        "[csharp]": {
+          "editor.defaultFormatter": "ms-dotnettools.csharp",
+          "editor.formatOnSave": true,
+          "editor.formatOnSaveMode": "modificationsIfAvailable",
+          "editor.formatOnType": true,
+          "editor.wordBasedSuggestions": false
+        },
+        "editor.inlayHints.enabled": "offUnlessPressed",
+        "csharp.inlayHints.parameters.enabled": true,
+        "csharp.inlayHints.parameters.forIndexerParameters": true,
+        "csharp.inlayHints.parameters.forLiteralParameters": true,
+        "csharp.inlayHints.parameters.forObjectCreationParameters": true,
+        "csharp.inlayHints.parameters.forOtherParameters": true,
+        "csharp.inlayHints.types.enabled": true,
+        "csharp.inlayHints.types.forImplicitObjectCreation": true,
+        "csharp.inlayHints.types.forImplicitVariableTypes": true,
+        "csharp.inlayHints.types.forLambdaParameterTypes": true,
+        "csharp.semanticHighlighting.enabled": true,
         "omnisharp.enableImportCompletion": true,
-        "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
         "omnisharp.enableRoslynAnalyzers": true,
-        "razor.format.enable": false
+        "omnisharp.organizeImportsOnFormat": true,
+        "omnisharp.useModernNet": true,
+        "powershell.powerShellDefaultVersion": "PowerShell",
+        "powershell.pester.debugOutputVerbosity": "Detailed",
+        "powershell.codeFormatting.alignPropertyValuePairs": true,
+        "powershell.codeFormatting.autoCorrectAliases": true,
+        "powershell.codeFormatting.newLineAfterOpenBrace": true,
+        "powershell.codeFormatting.openBraceOnSameLine": true,
+        "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+        "powershell.codeFormatting.preset": "OTBS",
+        "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+        "powershell.codeFormatting.useConstantStrings": true,
+        "powershell.codeFormatting.useCorrectCasing": true,
+        "powershell.codeFormatting.whitespaceBetweenParameters": true,
+        "git.autofetch": true,
+        "workbench.iconTheme": "vscode-icons"
       }
     }
   },
