@@ -5,7 +5,7 @@
     "cpus": 4
   },
   // This image is pre-cached in codespaces
-  "image": "mcr.microsoft.com/vscode/devcontainers/universal:linux",
+  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
   "features": {
     "ghcr.io/devcontainers-contrib/features/powershell:1": "latest"
     // Uncomment this if you want to contribute to documentation. See: https://github.com/PowerShell/PowerShell/blob/master/.github/CONTRIBUTING.md#contributing-to-documentation-related-to-maintaining-or-contributing-to-the-powershell-project
