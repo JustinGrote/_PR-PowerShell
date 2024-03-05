@@ -19,9 +19,5 @@ Start-PSBuild -Clean
 #Bootstrap initial requirements such as downloading the appropriate dotnet
 Start-PSBootstrap
 
-#Bootstrap dotnet 7.0 for C# dev kit Install-Dotnet can't install additional versions so we go to the core script
-try {
-    & ([ScriptBlock]::Create((Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1'))) -Channel 7.0 -RunTime dotnet -Architecture x64
-} catch {
-    Write-Warning $PSItem
-}
+#Bootstrap dotnet 7.0 for C# dev kit
+& bash dotnet-install.sh -Channel $env:CSHARP_DEV_KIT_RUNTIME_CHANNEL -Runtime dotnet
