@@ -36,12 +36,16 @@
     // Configure properties specific to VS Code.
     "vscode": {
       "extensions": [
-        "ms-vscode.powershell@prerelease",
-        "josefpihrt-vscode.roslynator", //This also installs the C# extension. We cant specify them both because it leads to a race condition currently due to bug in codespaces loading
-        "github.vscode-pull-request-github",
+        // NOTE: This must be updated whenever extensions.json recommendations are updated.
+        "davidanson.vscode-markdownlint",
+        "editorconfig.editorconfig",
+        "josefpihrt-vscode.roslynator",
         "ms-azure-devops.azure-pipelines",
+        "ms-dotnettools.csharp",
         "ms-vscode.cpptools",
-        "twxs.cmake"
+        "ms-vscode.powershell@prerelease",
+        "twxs.cmake",
+        "vitaliymaz.vscode-svg-previewer"
       ],
       "settings": {
         "[csharp]": {

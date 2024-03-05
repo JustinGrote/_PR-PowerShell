@@ -2,14 +2,14 @@
   // See https://go.microsoft.com/fwlink/?LinkId=827846
   // for the documentation about the extensions.json format
   "recommendations": [
+    "davidanson.vscode-markdownlint",
     "editorconfig.editorconfig",
-    "ms-azure-devops.azure-pipelines",
-    "ms-vscode.cpptools",
-    "ms-dotnettools.csharp",
     "josefpihrt-vscode.roslynator",
-    "ms-vscode.PowerShell",
+    "ms-azure-devops.azure-pipelines",
+    "ms-dotnettools.csharp",
+    "ms-vscode.cpptools",
+    "ms-vscode.powershell",
     "twxs.cmake",
-    "DavidAnson.vscode-markdownlint",
     "vitaliymaz.vscode-svg-previewer"
   ]
 }
