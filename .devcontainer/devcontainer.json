@@ -22,7 +22,7 @@
 
   // Devcontainer setup commands run in this order
   "onCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/onCreate.ps1"],
-  "updateContentCommand": ["pwsh","-f",".devcontainer/scripts/updateContent.ps1"],
+  "updateContentCommand": ["pwsh", "-f", ".devcontainer/scripts/updateContent.ps1"],
   "postCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/postCreate.ps1"],
   "postStartCommand": ["pwsh", "-f", ".devcontainer/scripts/postStart.ps1"],
   // BUG: This doesn't actually run but instead just puts the code in a console and requires enter. We dont need to do anything with this right now so ignore it.
@@ -32,8 +32,8 @@
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
+      // NOTE: This must be updated whenever extensions.json recommendations are updated to avoid nag prompts
       "extensions": [
-        // NOTE: This must be updated whenever extensions.json recommendations are updated.
         "davidanson.vscode-markdownlint",
         "editorconfig.editorconfig",
         "josefpihrt-vscode.roslynator",
@@ -42,7 +42,9 @@
         "ms-vscode.cpptools",
         "ms-vscode.powershell@prerelease",
         "twxs.cmake",
-        "vitaliymaz.vscode-svg-previewer"
+        "vitaliymaz.vscode-svg-previewer",
+        // C# Dev Kit is available at no cost for CodeSpaces: https://code.visualstudio.com/docs/csharp/cs-dev-kit-faq#_who-can-use-c-dev-kit
+        "ms-dotnettools.csdevkit"
       ],
       "settings": {
         "[csharp]": {
