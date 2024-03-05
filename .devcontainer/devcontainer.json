@@ -17,12 +17,18 @@
     "PATH": "/root/bin:/root/.dotnet:/root/.dotnet/tools:${containerEnv:PATH}",
     "DOTNET_NOLOGO": "true",
     // PowerShell bootstrap will place dotnet here, we need this env so the build script will find it to prevent an error
-    "DOTNET_ROOT": "/root/.dotnet"
+    "DOTNET_ROOT": "/root/.dotnet",
+    // C# Dev Kit Runtime Version Requirement
+    "CSHARP_DEV_KIT_RUNTIME_CHANNEL": "7.0"
   },
 
   // Devcontainer setup commands run in this order
   "onCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/onCreate.ps1"],
-  "updateContentCommand": ["pwsh", "-f", ".devcontainer/scripts/updateContent.ps1"],
+  "updateContentCommand": [
+    "pwsh",
+    "-f",
+    ".devcontainer/scripts/updateContent.ps1"
+  ],
   "postCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/postCreate.ps1"],
   "postStartCommand": ["pwsh", "-f", ".devcontainer/scripts/postStart.ps1"],
   // BUG: This doesn't actually run but instead just puts the code in a console and requires enter. We dont need to do anything with this right now so ignore it.
@@ -96,7 +102,14 @@
         "powershell.pester.debugOutputVerbosity": "Detailed",
         "git.autofetch": true,
         "workbench.iconTheme": "vscode-icons"
-      }
+      },
+      // This is bootstrapped in onCreate.ps1 so that it can be cached
+      "dotnetAcquisitionExtension.existingDotnetPath": [
+        {
+          "extensionId": "msazuretools.azurerm-vscode-tools",
+          "path": "/root/.dotnet/dotnet"
+        }
+      ]
     }
   }
 }
