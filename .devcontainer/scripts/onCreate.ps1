@@ -2,6 +2,8 @@
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'Ignore'
 
+(Get-ChildItem).FullName
+
 #Link Feature-Installed PowerShell to /usr/bin/pwsh, some vscode tasks hardcode this path
 New-Item -ItemType SymbolicLink -Path /usr/bin/pwsh -Value /usr/local/lib/pwsh/pwsh
 
