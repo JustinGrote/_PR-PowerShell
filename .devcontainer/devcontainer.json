@@ -101,15 +101,15 @@
         "powershell.powerShellDefaultVersion": "pwsh-devcontainer",
         "powershell.pester.debugOutputVerbosity": "Detailed",
         "git.autofetch": true,
-        "workbench.iconTheme": "vscode-icons"
-      },
-      "dotnetAcquisitionExtension.existingDotnetPath": [
-        // This is bootstrapped in onCreate.ps1 so that it can be cached
-        {
-          "extensionId": "msazuretools.azurerm-vscode-tools",
-          "path": "/root/.dotnet/dotnet"
-        }
-      ]
+        "workbench.iconTheme": "vscode-icons",
+        "dotnetAcquisitionExtension.existingDotnetPath": [
+          // This is bootstrapped in onCreate.ps1 so that it can be cached
+          {
+            "extensionId": "msazuretools.azurerm-vscode-tools",
+            "path": "/root/.dotnet/dotnet"
+          }
+        ]
+      }
     }
   }
 }
