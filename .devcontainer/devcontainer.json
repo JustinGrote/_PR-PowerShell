@@ -24,11 +24,11 @@
 
   // Devcontainer setup commands run in this order
   "onCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/onCreate.ps1"],
-  "updateContentCommand": [
-    "pwsh",
-    "-f",
-    ".devcontainer/scripts/updateContent.ps1"
-  ],
+  // "updateContentCommand": [
+  //   "pwsh",
+  //   "-f",
+  //   ".devcontainer/scripts/updateContent.ps1"
+  // ],
   "postCreateCommand": ["pwsh", "-f", ".devcontainer/scripts/postCreate.ps1"],
   "postStartCommand": ["pwsh", "-f", ".devcontainer/scripts/postStart.ps1"],
   // BUG: This doesn't actually run but instead just puts the code in a console and requires enter. We dont need to do anything with this right now so ignore it.
