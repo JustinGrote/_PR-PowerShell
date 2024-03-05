@@ -14,10 +14,10 @@
   "remoteUser": "root",
   "remoteEnv": {
     // Add dotnet, dotnet global tools, and local binaries to the path
-    "PATH": "/home/vscode/bin:/home/vscode/.dotnet:/home/vscode/.dotnet/tools:${containerEnv:PATH}",
+    "PATH": "/root/bin:/root/.dotnet:/root/.dotnet/tools:${containerEnv:PATH}",
     "DOTNET_NOLOGO": "true",
     // PowerShell bootstrap will place dotnet here, we need this env so the build script will find it to prevent an error
-    "DOTNET_ROOT": "/home/vscode/.dotnet"
+    "DOTNET_ROOT": "/root/.dotnet"
   },
 
   // Devcontainer setup commands run in this order
