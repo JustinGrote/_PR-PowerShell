@@ -19,7 +19,7 @@
     // PowerShell bootstrap will place dotnet here, we need this env so the build script will find it to prevent an error
     "DOTNET_ROOT": "/root/.dotnet",
     // C# Dev Kit Runtime Version Requirement
-    "CSHARP_DEV_KIT_RUNTIME_CHANNEL": "7.0"
+    "CSHARP_DEV_KIT_RUNTIME_CHANNEL": "8.0"
   },
 
   // Devcontainer setup commands run in this order

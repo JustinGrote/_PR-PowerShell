@@ -2,29 +2,24 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "PowerShell",
+            "name": "Launch PowerShell",
             "type": "coreclr",
             "request": "launch",
-            "justMyCode": true,
-            "stopAtEntry": false,
             "internalConsoleOptions": "neverOpen",
-            "enableStepFiltering": true,
-            "allowFastEvaluate": true,
             "program": "${workspaceRoot}/debug/pwsh",
             "preLaunchTask": "Build",
             "console": "integratedTerminal",
-            "cwd": "${workspaceRoot}",
             "logging": {
               // Suppresses the "Just my Code" symbol skip warnings
               "moduleLoad": false
             }
         },
         {
-            "name": "Attach to Process",
+            "name": "Attach to Existing PowerShell",
             "type": "coreclr",
             "request": "attach",
             "justMyCode": true,
-            "processId": "${command:pickProcess}"
+            "processId": "${command:pickProcess}",
         }
     ]
 }
